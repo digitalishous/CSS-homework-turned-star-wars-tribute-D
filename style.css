@@ -1,0 +1,220 @@
+/* GENERAL STYLING */
+@font-face {
+    font-family: "Trade-Gothic";
+    src: url(/assets/fonts/trade-gothic-lt-bold-no-2/trade-gothic-lt-bold-no-2.ttf);
+}
+
+html
+{
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+body{
+    height: 100vh;
+    overflow: hidden;
+    margin: 2rem 0 0 0;
+    padding: 0;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* -webkit-text-stroke: 0.1px #ffd166; */
+
+    background: radial-gradient(circle at center, #000 60%, #020617 100%);
+    color: #ffd166;
+
+    cursor: url(assets/img/DarthVaderEtched.png) 30 30, auto;
+
+}
+/* GENERAL STYLING - END */
+
+
+/* VISIBILITY AND ORDER IN WHICH ELEMENTS SHOW UP ON THE PAGE */
+header h1,
+.img-wrapper,
+.crawl-container {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+header h2{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease;
+}
+
+
+#intro.show header h1,
+#intro.show .img-wrapper,
+#intro.show .crawl-container {
+    opacity: 1;
+    visibility: visible;
+}
+/* VISIBILITY AND ORDER IN WHICH ELEMENTS SHOW UP ON THE PAGE - END */
+
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+    position: fixed;
+    top: 4vh;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+h1{
+    margin-bottom: 0;
+    font-size: clamp(1.6rem, 7vw, 3.5rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 90%;
+    font-family: 'Star Jedi Outline', sans-serif;
+    color: black;
+    /* -webkit-text-stroke: 0.1px #ffd166; */
+    
+    /* Creating a thick outline by stacking shadows in 4 directions */
+    text-shadow: 
+        -2px -2px 0 #ffd166,  
+         2px -2px 0 #ffd166,
+        -2px  2px 0 #ffd166,
+         2px  2px 0 #ffd166;
+
+}
+
+
+/* BODY ELEMENTS STYLING */
+h2{
+    margin-top: -1rem;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    font-family: "Trade-Gothic", monospace;
+    text-shadow: 0 10px 15px #1e4046;
+    color: #9fd6d2;
+    
+}
+
+h1, h2{
+    text-align: center;
+}
+
+
+.img-wrapper{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+
+    width: 60vh;
+    margin: 3rem auto;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+img{
+    border: 2px solid #9fd6d2;
+    border-radius: 20px;
+    max-height: 65vh;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    z-index: -2;
+    filter: brightness(0.4) contrast(0.9);
+}
+
+
+
+.text-wrapper{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 0.1rem;
+    z-index: 999;
+    padding: 0 1rem;
+    line-height: 2.5;
+
+    text-shadow: 0 5px 10px rgba(255, 209, 102, 0.6);
+}
+
+.gridContainer{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+#underlined{
+    text-decoration: underline;
+}
+/* BODY ELEMENTS STYLING - END*/
+
+
+/* CREDITS ANIMATION - STAR WARS STYLE */
+.crawl-container{
+    position: fixed;
+    inset: 0;
+    bottom: -5vh;
+    right: 20%;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    overflow: hidden; /* hides text when it goes out */
+    perspective: 300px; /*THIS creates the 3D effect */
+
+    z-index: 2;
+}
+
+.crawl{
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    text-align: center;
+    max-width: 600px;
+    transform-origin: 50% 100%; /* pivot from bottom */
+    animation: crawl 40s linear infinite;
+
+
+    animation-play-state: paused;
+}
+
+@keyframes crawl {
+    0% {
+        transform: rotateX(20deg) translateY(100%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotateX(25deg) translateY(-200%);
+        opacity: 0;
+    }
+}
+
+.crawl-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+
+    background: linear-gradient(to top, black, transparent);
+}
+/* CREDITS ANIMATION - STAR WARS STYLE -END */
+
+
+
+
+
+
+

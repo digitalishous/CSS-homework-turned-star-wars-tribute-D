@@ -11,7 +11,7 @@ addEventListener("click", () => {
     setTimeout(() => {
         body.classList.add("show");
         crawl.style.animationPlayState = "running";
-    }, 3000);
+    }, 4000);
 
 }, { once: true }); // this is needed so that the listener only runs once, and then shots down
 

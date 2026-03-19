@@ -40,7 +40,7 @@ header h1,
 .crawl-container {
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.8s ease;
+    transition: opacity 2s ease;
 }
 
 header h2{
@@ -131,7 +131,7 @@ img{
     object-fit: contain;
     display: block;
     z-index: -2;
-    filter: brightness(0.4) contrast(0.9);
+    filter: brightness(0.3) contrast(0.9);
 }
 
 
@@ -186,7 +186,7 @@ img{
     animation: crawl 40s linear infinite;
 
 
-    animation-play-state: paused;
+    animation-play-state: paused; /* so that it would change to "playing" through js */
 }
 
 @keyframes crawl {
